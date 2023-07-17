@@ -6,10 +6,8 @@ class ExampleFeatureTest extends BaseTestCase
 {
     /** @test */
     public function it_is_true()
-    {
-
-        $this->withoutExceptionHandling();
-        $this->artisan('config:build');
+    {            
+        $this->artisan('config:build')->assertExitCode(0);
         $this->assertTrue(true);
     }
 }

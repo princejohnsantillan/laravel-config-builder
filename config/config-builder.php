@@ -1,9 +1,13 @@
 <?php
 
-return [
-    'stub-path' => __DIR__.'/../stubs/',
-    'config-path' => __DIR__.'/',
-    'class-path' => __DIR__.'/objects/',
+return [    
+    'config-path' => config_path('/'),
+
+    'class-path' => app_path('Config/'),
+
     'class-namespace' => 'App\\Config',
-    'pint-config' => null,
+
+    'stub-path' => __DIR__.'/../stubs/',
+
+    'pint-options' => '--preset=laravel',
 ];

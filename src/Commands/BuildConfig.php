@@ -5,6 +5,7 @@ namespace PrinceJohn\LaravelConfigBuilder\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Process;
 
 /**
  * Known Issues:
@@ -28,6 +29,8 @@ class BuildConfig extends Command
 
     private string $classNamespace;
 
+    private string $pintOptions;
+
     public function __construct()
     {
         parent::__construct();
@@ -36,11 +39,12 @@ class BuildConfig extends Command
         $this->configPath = config('config-builder.config-path');
         $this->classPath = config('config-builder.class-path');
         $this->classNamespace = config('config-builder.class-namespace');
+        $this->pintOptions = config('config-builder.pint-options');
+
     }
 
     public function handle(): void
     {
-
         $classStub = File::get($this->stubPath.'config.class.stub');
 
         $files = File::files($this->configPath);
@@ -68,8 +72,9 @@ class BuildConfig extends Command
             $this->createConfigClass($filename, $classString);
         }
 
-        $this->info('Configurations built successfully');
+        Process::run(__DIR__."/../../vendor/bin/pint {$this->classPath} {$this->pintOptions}");
 
+        $this->info('Configurations built successfully');
     }
 
     private function buildClass(string $className, string $stub, array $configurations): array
@@ -132,6 +137,10 @@ class BuildConfig extends Command
     private function createConfigClass(string $filename, string $content): void
     {
         $filename = str($filename)->studly()->toString();
+
+        if (! File::exists($this->classPath)) {
+            File::makeDirectory($this->classPath);
+        }
 
         File::put($this->classPath.$filename, $content);
 
