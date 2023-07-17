@@ -1,6 +1,6 @@
 <?php
 
-namespace SolgenPower\{PackageName}\Test\Unit;
+namespace PrinceJohn\LaravelConfigBuilder\Test\Unit;
 
 use PHPUnit\Framework\TestCase;
 

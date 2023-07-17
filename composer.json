@@ -1,24 +1,27 @@
 {
-    "name": "solgenpower/{package-name}",
-    "description": "{package_description}",
+    "name": "princejohnsantillan/laravel-config-builder",
+    "description": "Build type hinted classes from Laravel's array based config",
     "license": "MIT",
     "keywords": [
-        "Laravel"
+        "laravel",
+        "config",
+        "configuration",
+        "laravel-config-builder"
     ],
     "authors": [
         {
-            "name": "{author_name}",
-            "email": "{author_email}"
+            "name": "Prince John Santillan",
+            "email": "mail@princejohnsantillan.net"
         }
     ],
     "autoload": {
         "psr-4": {
-            "SolgenPower\\{PackageName}\\": "src/"
+            "PrinceJohn\\LaravelConfigBuilder\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SolgenPower\\{PackageName}\\Test\\": "tests/"
+            "PrinceJohn\\LaravelConfigBuilder\\Test\\": "tests/"
         }
     },
     "require": {
@@ -34,7 +37,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SolgenPower\\{PackageName}\\ServiceProvider"
+                "PrinceJohn\\LaravelConfigBuilder\\ServiceProvider"
             ]
         }
     },

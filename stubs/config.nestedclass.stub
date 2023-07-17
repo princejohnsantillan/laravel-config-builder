@@ -1,0 +1,9 @@
+class {{classname}}{
+    {{properties}}
+
+    public function __construct(){
+        {{initializations}}
+    }
+
+    {{methods}}
+}

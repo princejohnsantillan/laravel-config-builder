@@ -1,9 +1,9 @@
 <?php
 
-namespace SolgenPower\{PackageName}\Test\Feature;
+namespace PrinceJohn\LaravelConfigBuilder\Test\Feature;
 
 use Orchestra\Testbench\TestCase;
-use SolgenPower\{PackageName}\ServiceProvider;
+use PrinceJohn\LaravelConfigBuilder\ServiceProvider;
 
 class BaseTestCase extends TestCase
 {

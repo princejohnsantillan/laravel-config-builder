@@ -1,0 +1,19 @@
+<?php
+
+namespace {{namespace}};
+
+class {{classname}}{
+    {{properties}}
+
+    public function __construct(){
+        {{initializations}}
+    }
+
+    public static function config(){
+        return new self;
+    }
+
+    {{methods}}
+}
+
+{{nestedclasses}}
