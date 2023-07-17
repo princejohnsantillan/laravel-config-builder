@@ -1,0 +1,62 @@
+{
+    "name": "solgenpower/{package-name}",
+    "description": "{package_description}",
+    "license": "MIT",
+    "keywords": [
+        "Laravel"
+    ],
+    "authors": [
+        {
+            "name": "{author_name}",
+            "email": "{author_email}"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "SolgenPower\\{PackageName}\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SolgenPower\\{PackageName}\\Test\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^9.0|^10.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.10",
+        "nunomaduro/larastan": "^2.6",
+        "phpunit/phpunit": "^9.6",
+        "orchestra/testbench": "^7.0|^8.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SolgenPower\\{PackageName}\\ServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "lint": [
+            "./vendor/bin/pint"
+        ],
+        "analyse": [
+            "./vendor/bin/phpstan analyse --memory-limit=-1"
+        ],
+        "test": [
+            "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-html=html"
+        ],
+        "review": [
+            "./vendor/bin/pint",
+            "./vendor/bin/phpstan analyse --memory-limit=-1",
+            "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-html=html"
+        ],
+        "ci-review": [
+            "./vendor/bin/pint --test",
+            "./vendor/bin/phpstan analyse --memory-limit=-1",
+            "./vendor/bin/phpunit"
+        ]
+    }
+}
