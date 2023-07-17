@@ -99,14 +99,14 @@ class BuildConfig extends Command
 
             $initializations[] = PHP_EOL."\$this->{$property} = $printValue;";
 
-            if (is_array($value) && Arr::isAssoc($value)) {
+            if (is_array($value) && Arr::isAssoc($value)) {                
+                $nestedclassName = str("{$className}_{$property}")->title()->toString();
+
                 $methods[] = <<<PHP
                     public function {$property}(){
-                        return new {$className};
+                        return new {$nestedclassName};
                     }
                     PHP;
-
-                $nestedclassName = str("{$className}_{$property}")->title()->toString();
 
                 $nestedclasses = array_merge($this->buildNestedClass($nestedclassName, $value), $nestedclasses);
 
