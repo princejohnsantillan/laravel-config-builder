@@ -26,4 +26,6 @@ This will create classes out of your existing config files. By default this will
 
 You can use these generated config classes to access the configuration. Example: `App::config()->debug`
 
+I advise that you add `App\Config` to your `.gitignore`. Since the generated classes are treated like cache to your current env values you should rebuild them when deploying to production.
+
 

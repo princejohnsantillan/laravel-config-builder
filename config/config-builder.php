@@ -9,5 +9,5 @@ return [
 
     'stub-path' => __DIR__.'/../stubs/',
 
-    'pint-options' => '--preset=laravel',
+    'lint-command' => base_path().'/vendor/bin/pint '.app_path('Config/').' --preset=laravel',
 ];

@@ -29,7 +29,7 @@ class BuildConfig extends Command
 
     private string $classNamespace;
 
-    private string $pintOptions;
+    private string $lintCommand;
 
     public function __construct()
     {
@@ -39,8 +39,7 @@ class BuildConfig extends Command
         $this->configPath = config('config-builder.config-path');
         $this->classPath = config('config-builder.class-path');
         $this->classNamespace = config('config-builder.class-namespace');
-        $this->pintOptions = config('config-builder.pint-options');
-
+        $this->lintCommand = config('config-builder.lint-command');
     }
 
     public function handle(): void
@@ -72,7 +71,7 @@ class BuildConfig extends Command
             $this->createConfigClass($filename, $classString);
         }
 
-        Process::run(__DIR__."/../../vendor/bin/pint {$this->classPath} {$this->pintOptions}");
+        Process::run($this->lintCommand);
 
         $this->info('Configurations built successfully');
     }
